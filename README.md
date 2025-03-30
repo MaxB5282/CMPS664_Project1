@@ -9,3 +9,5 @@ The python script goes through the five following steps.
 3. Automatically normalize tables into 3NF via results from step 2.
 4. Generate an SQL script to automatically create and populate tables in excel using the normalized tables from step 3.
 5. Run the scripts from step 4 using an sql connection.
+
+The input example test file can be used to demo the tool and shows examples of formatting for each input.
