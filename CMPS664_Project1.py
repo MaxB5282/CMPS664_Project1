@@ -22,8 +22,27 @@ def compute_closure(attributes, fds):
                 changed = True
     return closure
 
+def suggest_candidate_keys(attributes, fds):
+    candidate_keys = []
+    for i in range(1, len(attributes) + 1):
+        for subset in itertools.combinations(attributes, i):
+            closure = compute_closure(subset, fds)
+            if set(attributes).issubset(closure):
+                is_minimal = True
+                for key in candidate_keys:
+                    if set(key).issubset(subset):
+                        is_minimal = False
+                        break
+                if is_minimal:
+                    candidate_keys.append(subset)
+    return candidate_keys
+
 def identify_dependencies(attributes, fds, primary_key):
     print("Primary Key:", primary_key)
+    candidate_keys = suggest_candidate_keys(attributes, fds)
+    print("Possible Candidate Keys:")
+    for key in candidate_keys:
+        print("-", key)
     closures = {attr: compute_closure([attr], fds) for attr in attributes}
     partial, transitive = [], []
     for lhs, rhs in fds.items():
