@@ -1,0 +1,9 @@
+Input_1 : formula1_racing.csv
+
+Input_2 : DriverID->DriverName,DriverID->Team,DriverID->CarNumber,Position->Points
+
+input_3 : DriverID, Race
+
+Input_3 : project1.db
+
+Input_4 : INSERT INTO Table_3 (DriverID, DriverName, Race, Position, Team) VALUES ('8', 'Max Bilyk', 'Monaco GP', '1', 'Ferrari');
