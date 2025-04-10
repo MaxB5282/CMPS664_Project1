@@ -1,3 +1,4 @@
+
 import pandas as pd
 import mysql.connector
 import itertools
@@ -71,7 +72,7 @@ def normalize(attributes, fds, primary_key):
     normalized_tables = []
     for i, table in enumerate(tables, start=1):
         print(f"Table_{i}:", table)
-        normalized_tables.append((f"Table_{i}", list(table)))
+        normalized_tables.append((f"Table_{i}", sorted(list(table))))
     return normalized_tables
 
 # Step 4: SQL Script Generation
